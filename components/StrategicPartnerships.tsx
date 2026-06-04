@@ -76,13 +76,14 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
     // Only the top N-1 cards actually peel away. The last card stays fixed.
     const y = useTransform(progress, [start, end], ["0%", "-110%"]);
     // Start fading only after 60% of the movement is done, and end at 0.2 opacity
+    const opacity = useTransform(progress, [start, end], [1, 0]);
     const scale = useTransform(progress, [start, end], [1, 0.95]);
 
     return (
         <motion.div
             style={{
                 y: index === total - 1 ? 0 : y,
-                opacity: 1,
+                opacity: index === total - 1 ? 1 : opacity,
                 scale: index === total - 1 ? 1 : scale,
                 zIndex: total - index, // First card is on top
             }}
