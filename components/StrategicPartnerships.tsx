@@ -68,10 +68,11 @@ const partnerships = [
 ];
 
 const PartnershipCard = ({ partner, index, progress, total }: { partner: any, index: number, progress: any, total: number }) => {
-    // Range calculation: 
-    // Each card 'i' is the top card during the range [i/total, (i+1)/total]
-    const start = index / total;
-    const end = (index + 1) / total;
+    // Range calculation with a 15% scroll buffer at the start:
+    const startBuffer = 0.15;
+    const activeRange = 1 - startBuffer;
+    const start = startBuffer + (index / total) * activeRange;
+    const end = startBuffer + ((index + 1) / total) * activeRange;
 
     // Only the top N-1 cards actually peel away. The last card stays fixed.
     const y = useTransform(progress, [start, end], ["0%", "-110%"]);
@@ -157,9 +158,9 @@ const StrategicPartnerships = () => {
         offset: ["start start", "end end"]
     });
 
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.08], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.08], ["0%", "-50%"]);
-    const cardsYOffset = useTransform(scrollYProgress, [0, 0.08], ["10%", "0%"]);
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.12], ["0%", "-50%"]);
+    const cardsYOffset = useTransform(scrollYProgress, [0, 0.15], ["15%", "0%"]);
 
     return (
         <section
