@@ -184,12 +184,12 @@ const StrategicPartnerships = () => {
                     </h2>
                 </motion.div>
 
-                {/* Stacked Cards Layout Wrapper - Absolute and centered in viewport */}
+                {/* Stacked Cards Layout Wrapper - Absolute and centered in remaining viewport */}
                 <motion.div
                     style={{ y: cardsYOffset }}
-                    className="absolute inset-0 z-10 w-full max-w-6xl mx-auto flex items-center justify-center pt-20 lg:pt-0"
+                    className="absolute inset-x-0 bottom-0 top-[180px] sm:top-[200px] md:top-[240px] lg:top-[280px] z-10 w-full max-w-6xl mx-auto flex items-center justify-center p-4"
                 >
-                    <div className="relative w-full h-[80vh] lg:h-full">
+                    <div className="relative w-full h-full">
                         {partnerships.map((partner, index) => (
                             <PartnershipCard
                                 key={index}
