@@ -18,61 +18,61 @@ const inter = Inter({
 const partnerships = [
     {
         name: "RotationMatch",
-        description: "Sleek and interactive rotation matching application for digital assets and visual puzzles.",
-        image: "/hero-image.png", // fallback placeholder from public folder
+        description: "Interactive rotation matching tool for aligning digital puzzle assets.",
+        image: "/hero-image.png",
         liveUrl: "#",
         testimonial: {
             author: "Alex Rivera",
             role: "Lead Designer, RotationMatch",
-            text: "The rotation matching animations are incredibly fluid. It solved our alignment and user onboarding issues perfectly!",
+            text: "Incredibly fluid animations. Solved our alignment and onboarding issues perfectly!",
             avatar: "https://i.pravatar.cc/150?u=rotationmatch"
         }
     },
     {
         name: "Boomzo",
-        description: "One-stop platform connecting Aligarh users with professional home, salon, and real estate services.",
-        image: "/hero-image.png", // fallback placeholder
+        description: "Connecting users with Aligarh's professional home, salon, and real estate services.",
+        image: "/hero-image.png",
         liveUrl: "https://www.boomzo.in/",
         testimonial: {
             author: "Sarah Thompson",
             role: "Founder, Boomzo",
-            text: "Top Gun Softwares built us an incredible platform that perfectly captures our vibrant brand. Highly recommend!",
+            text: "Top Gun Softwares built an incredible platform that perfectly captures our vibrant brand.",
             avatar: "https://i.pravatar.cc/150?u=boomzo"
         }
     },
     {
         name: "TopGunz Auto",
-        description: "Modern auto shop management platform - Run your entire auto shop from one comprehensive shop OS.",
-        image: "/hero-image.png", // fallback placeholder
+        description: "Modern shop OS - Run your entire auto business from one comprehensive platform.",
+        image: "/hero-image.png",
         liveUrl: "https://www.topgunzauto.com/",
         testimonial: {
             author: "Michael Roberts",
             role: "Owner, TopGunz Auto",
-            text: "Top Gun Softwares built us a modern platform that transformed our auto shop. The website is intuitive and our team loves it!",
+            text: "Built us a modern platform that transformed our shop. Intuitive and our team loves it!",
             avatar: "https://i.pravatar.cc/150?u=topgunzauto"
         }
     },
     {
         name: "Hger",
-        description: "Sleek, high-end design portfolio and platform optimized for creative professionals.",
-        image: "/hero-image.png", // fallback placeholder
+        description: "High-end design portfolio and showcase platform optimized for creative professionals.",
+        image: "/hero-image.png",
         liveUrl: "#",
         testimonial: {
             author: "Emma Larson",
             role: "Creative Director, Hger",
-            text: "Stunning aesthetics and incredible responsiveness. Our visual engagement has doubled since the launch!",
+            text: "Stunning aesthetics and responsiveness. Our visual engagement has doubled!",
             avatar: "https://i.pravatar.cc/150?u=hger"
         }
     },
     {
         name: "Top Gun Softwares",
-        description: "A premium software agency crafting bespoke websites, applications, and digital experiences.",
-        image: "/hero-image.png", // fallback placeholder
+        description: "A premium software agency crafting bespoke websites and high-performance digital experiences.",
+        image: "/hero-image.png",
         liveUrl: "#",
         testimonial: {
             author: "John Doe",
             role: "Managing Director",
-            text: "The agency delivered top-tier results in record time. Their animations and design quality are state-of-the-art!",
+            text: "Top-tier results in record time. Excellent animations and design quality!",
             avatar: "https://i.pravatar.cc/150?u=topgunsoft"
         }
     },
@@ -98,58 +98,60 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
                 scale: index === total - 1 ? 1 : scale,
                 zIndex: total - index, // First card is on top
             }}
-            className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-1 lg:p-2"
+            className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8"
         >
-            <div className="w-full max-w-6xl aspect-[3/4] md:aspect-video lg:h-[70vh] bg-white rounded-[24px] shadow-[0_20px_80px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
-                {/* Left Side: Mockup */}
-                <div className="w-full lg:w-[55%] bg-gray-50 flex items-center justify-center h-[38%] md:h-1/2 lg:h-full shrink-0 p-4 rounded-2xl">
-                    <div className={`relative group flex items-center justify-center w-full h-full lg:max-h-[500px] overflow-hidden shadow-2xl transition-transform duration-500`}>
+            <div className="w-full max-w-5xl aspect-[4/5] md:aspect-[1.5/1] lg:h-[65vh] bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.05)] border border-gray-100/80 overflow-hidden flex flex-col md:flex-row">
+                
+                {/* Left Side: Mockup Image */}
+                <div className="w-full md:w-[50%] bg-gray-50 flex items-center justify-center h-[35%] md:h-full shrink-0 p-6 md:p-8 lg:p-10">
+                    <div className="relative group w-full h-full overflow-hidden shadow-lg transition-transform duration-500 rounded-xl">
                         <img
                             src={partner.image}
                             alt={partner.name}
-                            className="w-full h-full object-cover rounded-xl filter contrast-[1.05]"
+                            className="w-full h-full object-cover rounded-xl filter contrast-[1.03]"
                         />
                         <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
                     </div>
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="w-full lg:w-[45%] p-6 md:p-10 lg:p-16 flex flex-col justify-between bg-white h-[60%] md:h-1/2 lg:h-full overflow-hidden lg:overflow-visible">
-                    <div className="space-y-3 lg:space-y-4">
-                        <h3 className={`${inter.className} text-2xl md:text-3xl lg:text-4xl font-normal text-gray-900`}>
+                <div className="w-full md:w-[50%] p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-white h-[65%] md:h-full overflow-hidden">
+                    <div className="space-y-2.5 md:space-y-4">
+                        <h3 className={`${inter.className} text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 tracking-tight`}>
                             {partner.name}
                         </h3>
-                        <p className={`${inter.className} hidden md:block text-sm md:text-base lg:text-lg text-gray-500 leading-relaxed font-normal`}>
+                        <p className={`${inter.className} text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed font-normal`}>
                             {partner.description}
                         </p>
                         <a
                             href={partner.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${inter.className} flex items-center gap-2 text-orange-600 font-bold text-sm md:text-base lg:text-lg hover:gap-3 transition-all duration-300`}
+                            className={`${inter.className} inline-flex items-center gap-1.5 text-orange-600 font-semibold text-xs sm:text-sm md:text-base hover:gap-2.5 transition-all duration-300`}
                         >
-                            View Live Site <ArrowUpRight className="w-5 h-5" />
+                            View Live Site <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                         </a>
                     </div>
 
                     {/* Testimonial Section */}
-                    <div className="mt-4 md:mt-8 lg:mt-16 bg-[#F8F9FB] p-4 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-gray-100 relative">
-                        <div className="flex items-center gap-3 lg:gap-4 mb-2 lg:mb-4">
+                    <div className="mt-4 lg:mt-6 bg-[#F8F9FB] p-4 md:p-5 rounded-2xl border border-gray-100/70 relative">
+                        <div className="flex items-center gap-3 mb-2.5">
                             <img
                                 src={partner.testimonial.avatar}
                                 alt={partner.testimonial.author}
-                                className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full object-cover border-2 border-white shadow-sm"
+                                className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover border border-white shadow-sm"
                             />
                             <div>
-                                <h4 className={`${inter.className} font-bold text-gray-900 text-sm md:text-base`}>{partner.testimonial.author}</h4>
-                                <span className="text-gray-400 text-xs md:text-sm whitespace-nowrap">{partner.testimonial.role}</span>
+                                <h4 className={`${inter.className} font-bold text-gray-900 text-xs sm:text-sm`}>{partner.testimonial.author}</h4>
+                                <span className="text-gray-400 text-[10px] sm:text-xs whitespace-nowrap">{partner.testimonial.role}</span>
                             </div>
                         </div>
-                        <p className={`${inter.className} text-xs md:text-sm lg:text-base text-gray-700 italic leading-relaxed line-clamp-3 md:line-clamp-none`}>
+                        <p className={`${inter.className} text-xs sm:text-sm text-gray-600 italic leading-relaxed`}>
                             "{partner.testimonial.text}"
                         </p>
                     </div>
                 </div>
+
             </div>
         </motion.div>
     );
