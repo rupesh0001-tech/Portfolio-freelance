@@ -67,124 +67,50 @@ const partnerships = [
     },
 ];
 
-const PartnershipCard = ({ partner, index, progress, total }: { partner: any, index: number, progress: any, total: number }) => {
-    // Range calculation with a 20% scroll buffer at the start:
-    const startBuffer = 0.20;
-    const activeRange = 1 - startBuffer;
-    const start = startBuffer + (index / total) * activeRange;
-    const end = startBuffer + ((index + 1) / total) * activeRange;
-
-    // Only the top N-1 cards actually peel away. The last card stays fixed.
-    const y = useTransform(progress, [start, end], ["0%", "-110%"]);
-    const scale = useTransform(progress, [start, end], [1, 0.95]);
-
-    // Opacity calculation to prevent overlap and stacked shadows:
-    // Cards remain 0 until they need to fade in when the previous card starts peeling,
-    // and fade out to 0 over the first 60% of their peel range.
-    let opacity;
-    if (index === 0) {
-        opacity = useTransform(
-            progress,
-            [0, start, start + (end - start) * 0.6, end],
-            [1, 1, 0, 0]
-        );
-    } else if (index === total - 1) {
-        const start_prev = startBuffer + ((index - 1) / total) * activeRange;
-        opacity = useTransform(
-            progress,
-            [start_prev, start],
-            [0, 1]
-        );
-    } else {
-        const start_prev = startBuffer + ((index - 1) / total) * activeRange;
-        opacity = useTransform(
-            progress,
-            [start_prev, start, start + (end - start) * 0.6, end],
-            [0, 1, 0, 0]
-        );
-    }
-
+const PartnershipCard = ({ partner }: { partner: any }) => {
     return (
-        <motion.div
-            style={{
-                y: index === total - 1 ? 0 : y,
-                opacity: opacity,
-                scale: index === total - 1 ? 1 : scale,
-                zIndex: total - index, // First card is on top
-            }}
-            className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8"
-        >
-            <div className="w-full max-w-5xl aspect-[4/5] md:aspect-[1.5/1] lg:h-[65vh] bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.04)] border border-neutral-100 overflow-hidden flex flex-col md:flex-row">
-                
-                {/* Left Side: Mockup Image */}
-                <div className="w-full md:w-[50%] bg-neutral-50 flex items-center justify-center h-[35%] md:h-full shrink-0 p-6 md:p-8 lg:p-10">
-                    <div className="relative group w-full h-full overflow-hidden shadow-lg transition-transform duration-500 rounded-xl">
-                        <img
-                            src={partner.image}
-                            alt={partner.name}
-                            className="w-full h-full object-cover rounded-xl filter contrast-[1.03]"
-                        />
-                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
-                    </div>
-                </div>
-
-                {/* Right Side: Content */}
-                <div className="w-full md:w-[50%] p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-white h-[65%] md:h-full overflow-hidden">
-                    <div className="space-y-2.5 md:space-y-4">
-                        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black tracking-tight">
-                            {partner.name}
-                        </h3>
-                        <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed font-normal">
-                            {partner.description}
-                        </p>
-                        <a
-                            href={partner.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-brand-primary font-semibold text-xs sm:text-sm md:text-base hover:text-[#cf6721] hover:gap-2.5 transition-all duration-300"
-                        >
-                            View Live Site <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
-                        </a>
-                    </div>
-
-                    {/* Testimonial Section */}
-                    <div className="mt-4 lg:mt-6 bg-neutral-50 p-4 md:p-5 rounded-2xl border border-neutral-100 relative">
-                        <div className="flex items-center gap-3 mb-2.5">
-                            <img
-                                src={partner.testimonial.avatar}
-                                alt={partner.testimonial.author}
-                                className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover border border-white shadow-sm"
-                            />
-                            <div>
-                                <h4 className="font-semibold text-black text-xs sm:text-sm">{partner.testimonial.author}</h4>
-                                <span className="text-neutral-400 text-[10px] sm:text-xs whitespace-nowrap">{partner.testimonial.role}</span>
-                            </div>
-                        </div>
-                        <p className="text-xs sm:text-sm text-neutral-700 italic leading-relaxed">
-                            "{partner.testimonial.text}"
-                        </p>
-                    </div>
-                </div>
-
+        <div className="flex flex-col shrink-0">
+            {/* Card Mockup Image */}
+            <div className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[580px] aspect-[16/10] bg-[#f8faf9] rounded-[24px] overflow-hidden shadow-sm border border-neutral-100/60 relative group cursor-pointer">
+                <img
+                    src={partner.image}
+                    alt={partner.name}
+                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 rounded-[24px] filter contrast-[1.02]"
+                />
             </div>
-        </motion.div>
+            
+            {/* Card Info Below */}
+            <div className="mt-5 px-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black tracking-tight">
+                    {partner.name}
+                </h3>
+                <p className="text-neutral-500 text-xs sm:text-sm mt-1.5 max-w-[260px] sm:max-w-[360px] md:max-w-[460px] leading-relaxed font-normal">
+                    {partner.description}
+                </p>
+                <a
+                    href={partner.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-brand-primary font-semibold text-xs sm:text-sm mt-2.5 hover:text-[#cf6721] hover:gap-2.5 transition-all duration-300"
+                >
+                    View Live Site <ArrowUpRight className="w-4 h-4" />
+                </a>
+            </div>
+        </div>
     );
 };
 
 const StrategicPartnerships = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-
-    // Tall container to allow scroll space for all cards
-    const scrollHeight = partnerships.length * 100;
+    const scrollHeight = partnerships.length * 90; // Scroll space for smooth transition
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
     });
 
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.15], ["0%", "-50%"]);
-    const cardsYOffset = useTransform(scrollYProgress, [0, 0.20], ["20%", "0%"]);
+    // Translate horizontal track leftwards based on vertical scroll
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-62%"]);
 
     return (
         <section
@@ -192,40 +118,35 @@ const StrategicPartnerships = () => {
             className="relative"
             style={{ height: `${scrollHeight}vh` }}
         >
-            <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
-                {/* Header - Stays on top but fades/moves */}
-                <motion.div
-                    style={{
-                        opacity: headerOpacity,
-                        y: headerY
-                    }}
-                    className="relative z-50 pt-16 lg:pt-20 max-w-7xl mx-auto px-6 md:px-12 text-left"
-                >
+            <div className="sticky top-0 h-screen w-full overflow-hidden bg-background flex flex-col justify-between py-12 md:py-16">
+                
+                {/* Fixed Header */}
+                <div className="max-w-7xl mx-auto px-6 md:px-12 text-left w-full shrink-0">
                     <span className="text-sm font-bold tracking-wider text-brand-primary uppercase block mb-3">
                         Projects
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black leading-tight max-w-2xl">
                         Selected Projects & Works
                     </h2>
-                </motion.div>
+                </div>
 
-                {/* Stacked Cards Layout Wrapper - Absolute and centered vertically in the viewport */}
-                <motion.div
-                    style={{ y: cardsYOffset }}
-                    className="absolute inset-0 z-10 w-full max-w-6xl mx-auto flex items-center justify-center p-4"
-                >
-                    <div className="relative w-full h-full">
+                {/* Horizontal Scroll Track Wrapper */}
+                <div className="flex-1 flex items-center overflow-hidden w-full">
+                    <motion.div
+                        style={{ x }}
+                        className="flex gap-8 sm:gap-12 pl-6 md:pl-12 lg:pl-24 pr-[20vw]"
+                    >
                         {partnerships.map((partner, index) => (
                             <PartnershipCard
                                 key={index}
                                 partner={partner}
-                                index={index}
-                                progress={scrollYProgress}
-                                total={partnerships.length}
                             />
                         ))}
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
+                
+                {/* Bottom Spacer to center visual balance */}
+                <div className="h-6 md:h-12 shrink-0" />
             </div>
         </section>
     );
