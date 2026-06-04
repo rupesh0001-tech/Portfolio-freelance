@@ -2,18 +2,7 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Playfair_Display, Inter } from "next/font/google";
 import { ArrowUpRight } from "lucide-react";
-
-const playfair = Playfair_Display({
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
-});
-
-const inter = Inter({
-    subsets: ["latin"],
-    weight: ["400", "500", "600"],
-});
 
 const partnerships = [
     {
@@ -100,10 +89,10 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
             }}
             className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8"
         >
-            <div className="w-full max-w-5xl aspect-[4/5] md:aspect-[1.5/1] lg:h-[65vh] bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.05)] border border-gray-100/80 overflow-hidden flex flex-col md:flex-row">
+            <div className="w-full max-w-5xl aspect-[4/5] md:aspect-[1.5/1] lg:h-[65vh] bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.04)] border border-neutral-100 overflow-hidden flex flex-col md:flex-row">
                 
                 {/* Left Side: Mockup Image */}
-                <div className="w-full md:w-[50%] bg-gray-50 flex items-center justify-center h-[35%] md:h-full shrink-0 p-6 md:p-8 lg:p-10">
+                <div className="w-full md:w-[50%] bg-neutral-50 flex items-center justify-center h-[35%] md:h-full shrink-0 p-6 md:p-8 lg:p-10">
                     <div className="relative group w-full h-full overflow-hidden shadow-lg transition-transform duration-500 rounded-xl">
                         <img
                             src={partner.image}
@@ -117,24 +106,24 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
                 {/* Right Side: Content */}
                 <div className="w-full md:w-[50%] p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-white h-[65%] md:h-full overflow-hidden">
                     <div className="space-y-2.5 md:space-y-4">
-                        <h3 className={`${inter.className} text-xl md:text-2xl lg:text-3xl font-semibold text-gray-900 tracking-tight`}>
+                        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black tracking-tight">
                             {partner.name}
                         </h3>
-                        <p className={`${inter.className} text-xs sm:text-sm md:text-base text-gray-500 leading-relaxed font-normal`}>
+                        <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed font-normal">
                             {partner.description}
                         </p>
                         <a
                             href={partner.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${inter.className} inline-flex items-center gap-1.5 text-orange-600 font-semibold text-xs sm:text-sm md:text-base hover:gap-2.5 transition-all duration-300`}
+                            className="inline-flex items-center gap-1.5 text-brand-primary font-semibold text-xs sm:text-sm md:text-base hover:text-[#cf6721] hover:gap-2.5 transition-all duration-300"
                         >
                             View Live Site <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                         </a>
                     </div>
 
                     {/* Testimonial Section */}
-                    <div className="mt-4 lg:mt-6 bg-[#F8F9FB] p-4 md:p-5 rounded-2xl border border-gray-100/70 relative">
+                    <div className="mt-4 lg:mt-6 bg-neutral-50 p-4 md:p-5 rounded-2xl border border-neutral-100 relative">
                         <div className="flex items-center gap-3 mb-2.5">
                             <img
                                 src={partner.testimonial.avatar}
@@ -142,11 +131,11 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
                                 className="w-8 h-8 md:w-9 md:h-9 rounded-full object-cover border border-white shadow-sm"
                             />
                             <div>
-                                <h4 className={`${inter.className} font-bold text-gray-900 text-xs sm:text-sm`}>{partner.testimonial.author}</h4>
-                                <span className="text-gray-400 text-[10px] sm:text-xs whitespace-nowrap">{partner.testimonial.role}</span>
+                                <h4 className="font-semibold text-black text-xs sm:text-sm">{partner.testimonial.author}</h4>
+                                <span className="text-neutral-400 text-[10px] sm:text-xs whitespace-nowrap">{partner.testimonial.role}</span>
                             </div>
                         </div>
-                        <p className={`${inter.className} text-xs sm:text-sm text-gray-600 italic leading-relaxed`}>
+                        <p className="text-xs sm:text-sm text-neutral-700 italic leading-relaxed">
                             "{partner.testimonial.text}"
                         </p>
                     </div>
@@ -178,19 +167,21 @@ const StrategicPartnerships = () => {
             className="relative"
             style={{ height: `${scrollHeight}vh` }}
         >
-            <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
+            <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
                 {/* Header - Stays on top but fades/moves */}
                 <motion.div
                     style={{
                         opacity: headerOpacity,
                         y: headerY
                     }}
-                    className="relative z-50 pt-16 lg:pt-20 container mx-auto px-6 text-center "
+                    className="relative z-50 pt-16 lg:pt-20 max-w-7xl mx-auto px-6 md:px-12 text-left"
                 >
-                    <h2 className={`${playfair.className} text-3xl md:text-4xl lg:text-7xl font-bold text-gray-900 mb-4 tracking-tight leading-tight`}>
+                    <span className="text-sm font-bold tracking-wider text-brand-primary uppercase block mb-3">
+                        Our Work
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black leading-tight max-w-2xl">
                         Recent Strategic Partnerships
                     </h2>
-
                 </motion.div>
 
                 {/* Stacked Cards Layout Wrapper - Absolute and centered in viewport */}
