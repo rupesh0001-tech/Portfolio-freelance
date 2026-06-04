@@ -76,15 +76,39 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
 
     // Only the top N-1 cards actually peel away. The last card stays fixed.
     const y = useTransform(progress, [start, end], ["0%", "-110%"]);
-    // Make the opacity drop to 0 only when it reaches the very top (last 5% of its peel range)
-    const opacity = useTransform(progress, [start, start + (end - start) * 0.95, end], [1, 1, 0]);
     const scale = useTransform(progress, [start, end], [1, 0.95]);
+
+    // Opacity calculation to prevent overlap and stacked shadows:
+    // Cards remain 0 until they need to fade in when the previous card starts peeling,
+    // and fade out to 0 over the first 60% of their peel range.
+    let opacity;
+    if (index === 0) {
+        opacity = useTransform(
+            progress,
+            [0, start, start + (end - start) * 0.6, end],
+            [1, 1, 0, 0]
+        );
+    } else if (index === total - 1) {
+        const start_prev = startBuffer + ((index - 1) / total) * activeRange;
+        opacity = useTransform(
+            progress,
+            [start_prev, start],
+            [0, 1]
+        );
+    } else {
+        const start_prev = startBuffer + ((index - 1) / total) * activeRange;
+        opacity = useTransform(
+            progress,
+            [start_prev, start, start + (end - start) * 0.6, end],
+            [0, 1, 0, 0]
+        );
+    }
 
     return (
         <motion.div
             style={{
                 y: index === total - 1 ? 0 : y,
-                opacity: index === total - 1 ? 1 : opacity,
+                opacity: opacity,
                 scale: index === total - 1 ? 1 : scale,
                 zIndex: total - index, // First card is on top
             }}

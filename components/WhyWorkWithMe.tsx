@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Code2, Layers, Clock, HeartHandshake, TrendingUp } from "lucide-react";
 
 interface BenefitItem {
@@ -66,6 +66,8 @@ const cardVariants = {
 };
 
 export default function WhyWorkWithMe() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="why-me" className="py-20 md:py-28 max-w-7xl mx-auto px-6 md:px-12">
       
@@ -97,23 +99,44 @@ export default function WhyWorkWithMe() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative"
       >
         {benefitsList.map((benefit, index) => (
           <motion.div
             key={index}
             variants={cardVariants}
-            whileHover={{ y: -6, transition: { duration: 0.3, ease: "easeOut" } }}
-            className="group bg-white rounded-2xl p-8 border border-neutral-100/50 shadow-sm hover:shadow-lg hover:border-brand-primary/20 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+            whileHover={{ y: -8, scale: 1.02 }}
+            animate={{ 
+              opacity: hoveredIndex !== null && hoveredIndex !== index ? 0.45 : 1,
+              borderColor: hoveredIndex === index ? "rgba(232,125,54,0.25)" : "rgba(229,229,229,0.5)"
+            }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className="group relative bg-white/70 backdrop-blur-md rounded-2xl p-8 border shadow-sm flex flex-col justify-between cursor-pointer overflow-hidden transition-shadow"
           >
-            <div>
+            {/* Sliding backdrop follower */}
+            <AnimatePresence>
+              {hoveredIndex === index && (
+                <motion.div
+                  layoutId="hoverBg"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 bg-[#e87d36]/[0.03] rounded-2xl -z-10 shadow-[0_8px_30px_rgba(232,125,54,0.03)]"
+                  transition={{ type: "spring", bounce: 0.1, duration: 0.5 }}
+                />
+              )}
+            </AnimatePresence>
+
+            <div className="relative z-10 flex flex-col h-full">
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-xl bg-brand-primary/5 group-hover:bg-brand-primary group-hover:rotate-6 flex items-center justify-center mb-6 transition-all duration-300">
+              <div className="w-14 h-14 rounded-xl bg-brand-primary/5 group-hover:bg-brand-primary flex items-center justify-center mb-6 transition-all duration-500 ease-out group-hover:rotate-[12deg] group-hover:scale-110 shadow-sm group-hover:shadow-md group-hover:shadow-brand-primary/10">
                 {benefit.icon}
               </div>
               
               {/* Title */}
-              <h3 className="text-xl font-semibold text-black mb-3">
+              <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-brand-primary transition-colors duration-300">
                 {benefit.title}
               </h3>
               
