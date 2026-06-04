@@ -182,6 +182,8 @@ const StrategicPartnerships = () => {
         offset: ["start start", "end end"]
     });
 
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.15], ["0%", "-50%"]);
     const cardsYOffset = useTransform(scrollYProgress, [0, 0.20], ["20%", "0%"]);
 
     return (
@@ -191,6 +193,21 @@ const StrategicPartnerships = () => {
             style={{ height: `${scrollHeight}vh` }}
         >
             <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
+                {/* Header - Stays on top but fades/moves */}
+                <motion.div
+                    style={{
+                        opacity: headerOpacity,
+                        y: headerY
+                    }}
+                    className="relative z-50 pt-16 lg:pt-20 max-w-7xl mx-auto px-6 md:px-12 text-left"
+                >
+                    <span className="text-sm font-bold tracking-wider text-brand-primary uppercase block mb-3">
+                        Projects
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black leading-tight max-w-2xl">
+                        Selected Projects & Works
+                    </h2>
+                </motion.div>
 
                 {/* Stacked Cards Layout Wrapper - Absolute and centered vertically in the viewport */}
                 <motion.div
