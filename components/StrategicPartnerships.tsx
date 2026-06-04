@@ -178,17 +178,17 @@ const StrategicPartnerships = () => {
                     className="relative z-50 pt-16 lg:pt-20 max-w-7xl mx-auto px-6 md:px-12 text-left"
                 >
                     <span className="text-sm font-bold tracking-wider text-brand-primary uppercase block mb-3">
-                        Our Work
+                        Projects
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black leading-tight max-w-2xl">
-                        Recent Strategic Partnerships
+                        Selected Projects & Works
                     </h2>
                 </motion.div>
 
                 {/* Stacked Cards Layout Wrapper - Absolute and centered in remaining viewport */}
                 <motion.div
                     style={{ y: cardsYOffset }}
-                    className="absolute inset-x-0 bottom-0 top-[180px] sm:top-[200px] md:top-[240px] lg:top-[280px] z-10 w-full max-w-6xl mx-auto flex items-center justify-center p-4"
+                    className="absolute inset-0 z-10 w-full max-w-6xl mx-auto flex items-center justify-center p-4"
                 >
                     <div className="relative w-full h-full">
                         {partnerships.map((partner, index) => (
