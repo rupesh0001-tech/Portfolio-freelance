@@ -69,11 +69,11 @@ export default function Hero({
             {subheading}
           </p>
 
-          <div className="pt-2 mb-4">
+          {/* <div className="pt-2 mb-4">
             <Button variant="cta" href={ctaHref}>
               {ctaText}
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Right Image Column */}
