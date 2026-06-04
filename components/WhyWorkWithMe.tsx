@@ -3,8 +3,8 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  Zap, Code2, Layers, Clock, HeartHandshake, TrendingUp,
-  MessageSquare, Terminal, CheckCircle2, RefreshCw, LineChart
+  Zap, Code2, Layers, Clock,
+  MessageSquare, Terminal, CheckCircle2, TrendingUp
 } from "lucide-react";
 
 interface BenefitItem {
@@ -64,122 +64,204 @@ const VisualCode = () => (
 );
 
 const VisualArchitecture = () => (
-  <div className="w-full h-full flex items-center justify-center relative">
-    <div className="relative w-44 h-44 flex flex-col justify-between items-center py-2">
-      <div className="w-32 bg-white rounded-xl p-2 border border-neutral-100 shadow-md text-center z-30">
-        <span className="text-[7px] font-bold text-brand-primary uppercase tracking-wider">Edge CDN Layer</span>
-        <div className="text-[10px] font-semibold text-black mt-0.5">Global Caching</div>
+  <div className="w-full h-full flex items-center justify-center relative px-4 py-3">
+    <div className="relative w-full max-w-[380px] h-full flex flex-col justify-between items-center gap-2.5">
+
+      {/* ── Tier 1: Load Balancer / Edge ── */}
+      <div className="w-full bg-white rounded-xl px-3 py-2 border border-neutral-100 shadow-sm z-30 flex items-center gap-2.5">
+        <div className="w-7 h-7 rounded-lg bg-brand-primary/10 flex items-center justify-center shrink-0">
+          <Layers className="w-3.5 h-3.5 text-brand-primary" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5">
+            <span className="text-[10px] font-bold text-black">Edge Load Balancer</span>
+            <span className="text-[7px] font-bold text-[#a6e3a1] bg-[#a6e3a1]/10 px-1.5 py-0.5 rounded-full uppercase tracking-wider">Live</span>
+          </div>
+          <span className="text-[8px] text-neutral-400 font-medium">3 regions • Auto-scaling • SSL/TLS</span>
+        </div>
+        <span className="text-[9px] font-mono font-bold text-neutral-300 shrink-0">99.99%</span>
       </div>
 
-      <div className="absolute inset-y-6 w-0.5 border-l-2 border-dashed border-brand-primary/20 left-1/2 -ml-0.5" />
-
-      <motion.div
-        animate={{ y: [8, 90, 8] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-        className="absolute w-2 h-2 bg-brand-primary rounded-full shadow-[0_0_6px_rgba(232,125,54,0.4)] left-1/2 -ml-1 z-20"
-      />
-
-      <div className="w-36 bg-white rounded-xl p-2 border border-neutral-100 shadow-md text-center z-30">
-        <span className="text-[7px] font-bold text-neutral-400 uppercase tracking-wider">Backend API</span>
-        <div className="text-[10px] font-semibold text-black mt-0.5">Serverless Handler</div>
+      {/* ── Connection Lines with animated packets ── */}
+      <div className="relative w-full h-3 flex items-center justify-center z-10">
+        <div className="absolute left-[15%] right-[15%] h-px border-t border-dashed border-brand-primary/15" />
+        <motion.div
+          animate={{ x: [-40, 40, -40] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          className="absolute w-1.5 h-1.5 bg-brand-primary rounded-full shadow-[0_0_5px_rgba(232,125,54,0.4)] z-20"
+        />
       </div>
 
-      <div className="w-40 bg-white rounded-xl p-2 border border-neutral-100 shadow-md text-center z-30">
-        <span className="text-[7px] font-bold text-neutral-400 uppercase tracking-wider">Distributed DB</span>
-        <div className="text-[10px] font-semibold text-black mt-0.5">Multi-Region Storage</div>
+      {/* ── Tier 2: Microservices Row ── */}
+      <div className="w-full flex gap-1.5 z-30">
+        {[
+          { name: "Auth API", latency: "12ms", status: "bg-[#a6e3a1]" },
+          { name: "Core API", latency: "8ms", status: "bg-[#a6e3a1]" },
+          { name: "Events", latency: "15ms", status: "bg-[#f9e2af]" },
+        ].map((svc) => (
+          <div key={svc.name} className="flex-1 bg-white rounded-lg px-2 py-1.5 border border-neutral-100 shadow-sm">
+            <div className="flex items-center gap-1 mb-0.5">
+              <div className={`w-1 h-1 rounded-full ${svc.status} shrink-0`} />
+              <span className="text-[8px] font-bold text-black truncate">{svc.name}</span>
+            </div>
+            <span className="text-[7px] text-neutral-400 font-mono">{svc.latency}</span>
+          </div>
+        ))}
       </div>
+
+      {/* ── Connection Lines ── */}
+      <div className="relative w-full h-3 flex items-center justify-center z-10">
+        <div className="absolute left-[20%] right-[20%] h-px border-t border-dashed border-brand-primary/15" />
+        <motion.div
+          animate={{ x: [30, -30, 30] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "linear" }}
+          className="absolute w-1.5 h-1.5 bg-brand-primary/60 rounded-full shadow-[0_0_4px_rgba(232,125,54,0.3)] z-20"
+        />
+      </div>
+
+      {/* ── Tier 3: Cache + Queue ── */}
+      <div className="w-full flex gap-1.5 z-30">
+        <div className="flex-1 bg-white rounded-lg px-2.5 py-1.5 border border-neutral-100 shadow-sm flex items-center gap-2">
+          <div className="w-5 h-5 rounded bg-[#f38ba8]/10 flex items-center justify-center shrink-0">
+            <Zap className="w-2.5 h-2.5 text-[#f38ba8]" />
+          </div>
+          <div>
+            <span className="text-[8px] font-bold text-black block">Redis Cache</span>
+            <span className="text-[7px] text-neutral-400 font-mono">Hit: 97.3%</span>
+          </div>
+        </div>
+        <div className="flex-1 bg-white rounded-lg px-2.5 py-1.5 border border-neutral-100 shadow-sm flex items-center gap-2">
+          <div className="w-5 h-5 rounded bg-[#89b4fa]/10 flex items-center justify-center shrink-0">
+            <TrendingUp className="w-2.5 h-2.5 text-[#89b4fa]" />
+          </div>
+          <div>
+            <span className="text-[8px] font-bold text-black block">Message Queue</span>
+            <span className="text-[7px] text-neutral-400 font-mono">12k/min</span>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Connection Lines ── */}
+      <div className="relative w-full h-3 flex items-center justify-center z-10">
+        <div className="absolute left-[25%] right-[25%] h-px border-t border-dashed border-brand-primary/15" />
+        <motion.div
+          animate={{ y: [-2, 2, -2], opacity: [0.4, 1, 0.4] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute w-1.5 h-1.5 bg-brand-primary/80 rounded-full z-20"
+        />
+      </div>
+
+      {/* ── Tier 4: Database Cluster ── */}
+      <div className="w-full bg-white rounded-xl px-3 py-2 border border-neutral-100 shadow-sm z-30 flex items-center gap-2.5">
+        <div className="w-7 h-7 rounded-lg bg-[#cba6f7]/10 flex items-center justify-center shrink-0">
+          <Layers className="w-3.5 h-3.5 text-[#cba6f7]" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5">
+            <span className="text-[10px] font-bold text-black">PostgreSQL Cluster</span>
+            <span className="text-[7px] font-bold text-[#89b4fa] bg-[#89b4fa]/10 px-1.5 py-0.5 rounded-full uppercase tracking-wider">Primary</span>
+          </div>
+          <span className="text-[8px] text-neutral-400 font-medium">2 replicas • Auto-failover • WAL streaming</span>
+        </div>
+      </div>
+
     </div>
   </div>
 );
 
 const VisualDelivery = () => (
-  <div className="flex flex-col items-center justify-center w-full h-full relative">
-    <div className="relative w-32 h-32 flex items-center justify-center">
-      <svg className="w-full h-full transform -rotate-90">
-        <circle cx="64" cy="64" r="50" className="stroke-neutral-100 fill-none" strokeWidth="5" />
-        <motion.circle
-          cx="64" cy="64" r="50"
-          className="stroke-brand-primary fill-none"
-          strokeWidth="5"
-          strokeDasharray="314"
-          initial={{ strokeDashoffset: 314 }}
-          animate={{ strokeDashoffset: 314 * 0.15 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        />
-      </svg>
-      <div className="absolute flex flex-col items-center">
-        <CheckCircle2 className="w-6 h-6 text-brand-primary mb-0.5 animate-bounce" />
-        <span className="text-lg font-bold text-black font-mono">100%</span>
-        <span className="text-[7px] font-bold text-neutral-400 uppercase tracking-wider">On-Time</span>
-      </div>
-    </div>
-    <div className="flex gap-5 mt-3">
-      <div className="flex items-center gap-1">
-        <div className="w-1.5 h-1.5 bg-brand-primary rounded-full" />
-        <span className="text-[8px] font-semibold text-neutral-500">Milestones</span>
-      </div>
-      <div className="flex items-center gap-1">
-        <div className="w-1.5 h-1.5 bg-neutral-200 rounded-full" />
-        <span className="text-[8px] font-semibold text-neutral-500">Releases</span>
-      </div>
-    </div>
-  </div>
-);
+  <div className="flex items-center justify-center w-full h-full relative px-4 py-3">
+    <div className="relative w-full max-w-[340px] h-full flex flex-col">
 
-const VisualSupport = () => (
-  <div className="flex flex-col items-center justify-center w-full h-full">
-    <div className="relative w-32 h-16 flex items-center justify-center">
-      <svg className="w-full h-full" viewBox="0 0 100 50">
-        <path
-          d="M 25,25 C 10,10 10,40 25,25 C 40,10 60,10 75,25 C 90,40 90,10 75,25 C 60,40 40,40 25,25"
-          fill="none" className="stroke-neutral-100" strokeWidth="1.5"
-        />
-        <motion.path
-          d="M 25,25 C 10,10 10,40 25,25 C 40,10 60,10 75,25 C 90,40 90,10 75,25 C 60,40 40,40 25,25"
-          fill="none" className="stroke-brand-primary" strokeWidth="1.5"
-          strokeDasharray="160"
-          animate={{ strokeDashoffset: [-160, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
-        />
-      </svg>
-      <div className="absolute inset-0 flex items-center justify-center flex-col pt-2">
-        <RefreshCw className="w-4 h-4 text-brand-primary animate-spin" style={{ animationDuration: '5s' }} />
-        <span className="text-[8px] font-bold text-black uppercase tracking-wider mt-1">Lifecycle Support</span>
-      </div>
-    </div>
-  </div>
-);
+      {/* ── Delivery Receipt Paper ── */}
+      <div className="w-full h-full bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden flex flex-col relative">
 
-const VisualBusiness = () => (
-  <div className="flex flex-col items-center justify-center w-full h-full px-5">
-    <div className="w-full h-28 bg-white border border-neutral-100 shadow-sm rounded-xl p-3 flex flex-col justify-between overflow-hidden relative">
-      <div className="flex items-center justify-between shrink-0 mb-1.5">
-        <div className="flex items-center gap-1.5">
-          <LineChart className="w-3 h-3 text-brand-primary" />
-          <span className="text-[9px] font-bold text-black">Business Conversion Rate</span>
+        {/* Receipt Header */}
+        <div className="px-4 pt-3 pb-2 border-b border-dashed border-neutral-200 shrink-0">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-[10px] font-bold text-black block">Delivery Log</span>
+              <span className="text-[7px] text-neutral-400 font-medium">Project #2024-0718</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <motion.div
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1.5 h-1.5 bg-[#a6e3a1] rounded-full"
+              />
+              <span className="text-[7px] font-bold text-[#a6e3a1] uppercase tracking-wider">All Clear</span>
+            </div>
+          </div>
         </div>
-        <span className="text-[9px] font-bold text-[#a6e3a1] font-mono">+240% YoY</span>
-      </div>
-      <div className="flex-1 w-full flex items-end gap-2 relative">
+
+        {/* Deliverables List */}
+        <div className="flex-1 px-4 py-2 flex flex-col justify-center gap-1.5 overflow-hidden">
+          {[
+            { name: "UI/UX Design", promised: "Jan 15", actual: "Jan 13", early: true },
+            { name: "Frontend Build", promised: "Feb 20", actual: "Feb 20", early: false },
+            { name: "API Integration", promised: "Mar 10", actual: "Mar 8", early: true },
+            { name: "Testing & QA", promised: "Mar 25", actual: "Mar 23", early: true },
+            { name: "Production Deploy", promised: "Apr 1", actual: "Apr 1", early: false },
+          ].map((item, i) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: i * 0.15, duration: 0.4 }}
+              className="flex items-center gap-2 group/row"
+            >
+              <div className="w-4 h-4 rounded-full bg-[#a6e3a1]/10 flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-2.5 h-2.5 text-[#a6e3a1]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <span className="text-[9px] font-semibold text-black block truncate">{item.name}</span>
+              </div>
+              <div className="text-right shrink-0 flex items-center gap-2">
+                <div className="flex flex-col items-end">
+                  <span className="text-[6px] text-neutral-300 uppercase tracking-wider leading-none">Due</span>
+                  <span className="text-[8px] text-neutral-400 font-mono">{item.promised}</span>
+                </div>
+                <div className="w-px h-4 bg-neutral-100" />
+                <div className="flex flex-col items-end">
+                  <span className="text-[6px] text-neutral-300 uppercase tracking-wider leading-none">Actual</span>
+                  <span className={`text-[8px] font-mono font-bold ${item.early ? "text-[#a6e3a1]" : "text-black"}`}>{item.actual}</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Receipt Footer */}
+        <div className="px-4 py-2 border-t border-dashed border-neutral-200 shrink-0 flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <Clock className="w-3 h-3 text-brand-primary" />
+            <span className="text-[8px] text-neutral-500 font-medium">Avg. <span className="font-bold text-black">1.2 days early</span></span>
+          </div>
+          <span className="text-[8px] font-bold text-brand-primary font-mono">5/5 On-Time</span>
+        </div>
+
+        {/* ── Animated Stamp Seal ── */}
         <motion.div
-          initial={{ height: 0 }} animate={{ height: "40%" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex-1 bg-neutral-100 rounded-t-sm"
-        />
-        <motion.div
-          initial={{ height: 0 }} animate={{ height: "65%" }}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="flex-1 bg-brand-primary/20 rounded-t-sm"
-        />
-        <motion.div
-          initial={{ height: 0 }} animate={{ height: "95%" }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="flex-1 bg-brand-primary rounded-t-sm relative shadow-[0_0_10px_rgba(232,125,54,0.1)]"
-        />
+          initial={{ scale: 2, opacity: 0, rotate: -15 }}
+          animate={{ scale: 1, opacity: 1, rotate: -12 }}
+          transition={{ delay: 1, duration: 0.4, type: "spring", stiffness: 200 }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20"
+        >
+          <div className="w-24 h-24 rounded-full border-[3px] border-[#a6e3a1]/40 flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full border-2 border-dashed border-[#a6e3a1]/30 flex flex-col items-center justify-center">
+              <CheckCircle2 className="w-4 h-4 text-[#a6e3a1]/50 mb-0.5" />
+              <span className="text-[7px] font-black text-[#a6e3a1]/50 uppercase tracking-widest leading-none">On Time</span>
+              <span className="text-[5px] font-bold text-[#a6e3a1]/40 uppercase tracking-wider mt-0.5">Verified</span>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </div>
   </div>
 );
+
+
 
 // ── Benefits List ───────────────────────────────────────────────────
 
@@ -204,16 +286,7 @@ const benefitsList: BenefitItem[] = [
     description: "Strict adherence to schedules and milestones, delivering high-quality results exactly when promised.",
     visual: <VisualDelivery />,
   },
-  {
-    title: "Long-Term Support",
-    description: "Providing continued support, updates, and maintenance long after the initial launch is completed.",
-    visual: <VisualSupport />,
-  },
-  {
-    title: "Business-Oriented Solutions",
-    description: "Designing features tailored to achieve business goals: maximizing conversions, speed, and revenue.",
-    visual: <VisualBusiness />,
-  },
+
 ];
 
 // ── Benefit Card ────────────────────────────────────────────────────
@@ -222,7 +295,7 @@ const BenefitCard = ({ benefit }: { benefit: BenefitItem }) => {
   return (
     <div className="flex flex-col shrink-0 group">
       {/* Detailed Visual Graphic Card */}
-      <div className="w-[280px] sm:w-[340px] md:w-[400px] lg:w-[460px] aspect-[1.3/1] bg-white rounded-[24px] border border-neutral-100/60 flex items-center justify-center relative shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-primary/20 hover:shadow-md">
+      <div className="w-[280px] sm:w-[340px] md:w-[400px] lg:w-[460px] h-[50vh] max-h-[360px] bg-white rounded-[24px] border border-neutral-100/60 flex items-center justify-center relative shadow-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-primary/20 hover:shadow-md">
         {/* Soft Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/50 to-white" />
         <div className="absolute inset-0 bg-[#e87d36]/[0.01] group-hover:bg-[#e87d36]/[0.03] transition-colors duration-300" />
@@ -266,10 +339,10 @@ export default function WhyWorkWithMe() {
       className="relative"
       style={{ height: `${scrollHeight}vh` }}
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background flex flex-col justify-between py-12 md:py-16">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-background flex flex-col py-12 md:py-16">
 
         {/* Fixed Header */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-left w-full shrink-0">
+        <div className="max-w-7xl mb-10  mx-auto px-6 md:px-12 text-left w-full shrink-0">
           <span className="text-sm font-bold tracking-wider text-brand-primary uppercase block mb-3">
             Benefits
           </span>
@@ -279,7 +352,7 @@ export default function WhyWorkWithMe() {
         </div>
 
         {/* Horizontal Scroll Track */}
-        <div className="flex-1 flex items-center overflow-hidden w-full">
+        <div className="flex-1 flex items-center overflow-hidden w-full min-h-0">
           <motion.div
             style={{ x }}
             className="flex gap-8 sm:gap-12 pl-6 md:pl-12 lg:pl-24 pr-[20vw]"
@@ -290,8 +363,6 @@ export default function WhyWorkWithMe() {
           </motion.div>
         </div>
 
-        {/* Bottom Spacer */}
-        <div className="h-6 md:h-12 shrink-0" />
       </div>
     </section>
   );
