@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import PartnerLogos from "@/components/PartnerLogos";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
 
         {/* Brand Partner Logos */}
         <PartnerLogos />
+
+        {/* Services Section */}
+        <Services />
 
         {/* Small spacing at the bottom to match image layout */}
         <div className="h-10 bg-mint/60"></div>
