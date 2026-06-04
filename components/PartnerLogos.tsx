@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Inter, Playfair_Display } from "next/font/google";
+import { motion } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -76,7 +77,14 @@ export default function PartnerLogos() {
   const row2 = allTechs.slice(half);
 
   return (
-    <section id="techstack" className="py-8 bg-white border-y border-neutral-100/50 shadow-sm overflow-hidden">
+    <motion.section
+      id="techstack"
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="py-8 bg-white border-y border-neutral-100/50 shadow-sm overflow-hidden"
+    >
       <style>{`
           @keyframes marqueeScroll {
               0% { transform: translateX(0%); }
@@ -119,6 +127,6 @@ export default function PartnerLogos() {
           <div className="absolute right-0 top-0 h-full w-20 md:w-40 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent"></div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

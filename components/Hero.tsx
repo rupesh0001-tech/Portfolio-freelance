@@ -38,7 +38,12 @@ export default function Hero({
 
         {/* Left Content Column */}
         <div className="lg:col-span-6 flex flex-col space-y-6 md:space-y-8 text-left z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black leading-[1.15] tracking-tight max-w-xl">
+          <motion.h1 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black leading-[1.15] tracking-tight max-w-xl"
+          >
             Turn your idea into a successful{" "}
             <motion.span 
               layout 
@@ -63,11 +68,16 @@ export default function Hero({
               </AnimatePresence>
             </motion.span>{" "}
             today
-          </h1>
+          </motion.h1>
 
-          <p className="text-neutral-700 text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="text-neutral-700 text-base sm:text-lg md:text-xl font-medium leading-relaxed max-w-xl"
+          >
             {subheading}
-          </p>
+          </motion.p>
 
           {/* <div className="pt-2 mb-4">
             <Button variant="cta" href={ctaHref}>
@@ -78,7 +88,12 @@ export default function Hero({
 
         {/* Right Image Column */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full relative z-0">
-          <div className="w-full max-w-[580px] lg:max-w-none transition-transform duration-500 hover:scale-[1.02] relative">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-[580px] lg:max-w-none transition-transform duration-500 hover:scale-[1.02] relative"
+          >
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -88,7 +103,12 @@ export default function Hero({
               className="w-full h-auto object-contain"
             />
             {/* Rupesh Arrow */}
-            <div className="absolute -top-12 right-80 md:-top-30 md:-right-45 w-32 sm:w-200 md:w-200 z-10 pointer-events-none select-none">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.6, rotate: 15 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.75 }}
+              className="absolute -top-12 right-[80px] md:-top-[30px] md:-right-[45px] w-32 sm:w-[160px] md:w-[200px] z-10 pointer-events-none select-none"
+            >
               <Image
                 src="/Rupesh (1) (1).png"
                 alt="Rupesh (Me)"
@@ -96,8 +116,8 @@ export default function Hero({
                 height={400}
                 className="w-full h-auto object-contain"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
       </div>
