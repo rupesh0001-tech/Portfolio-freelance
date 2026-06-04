@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Smartphone, Palette, Target } from "lucide-react";
+import { Code2, Smartphone, Palette, Target, ArrowRight } from "lucide-react";
 
 interface ServiceItem {
   title: string;
@@ -14,22 +14,22 @@ const servicesList: ServiceItem[] = [
   {
     title: "Web Development",
     description: "We build fast, secure, and beautiful websites tailored to your business needs, using modern frameworks.",
-    icon: <Code2 className="w-8 h-8 text-brand-primary" />,
+    icon: <Code2 className="w-8 h-8 text-brand-primary group-hover:text-white transition-colors duration-300" />,
   },
   {
     title: "Mobile Application",
     description: "High-performance native and cross-platform mobile apps designed for smooth user experience.",
-    icon: <Smartphone className="w-8 h-8 text-brand-primary" />,
+    icon: <Smartphone className="w-8 h-8 text-brand-primary group-hover:text-white transition-colors duration-300" />,
   },
   {
     title: "UI/UX Interface Design",
     description: "User-centric design solutions that make your product intuitive, accessible, and delightful.",
-    icon: <Palette className="w-8 h-8 text-brand-primary" />,
+    icon: <Palette className="w-8 h-8 text-brand-primary group-hover:text-white transition-colors duration-300" />,
   },
   {
     title: "Brand Identity",
     description: "Stand out from competitors with a memorable logo, consistent visual language, and brand strategy.",
-    icon: <Target className="w-8 h-8 text-brand-primary" />,
+    icon: <Target className="w-8 h-8 text-brand-primary group-hover:text-white transition-colors duration-300" />,
   },
 ];
 
@@ -93,11 +93,12 @@ export default function Services() {
           <motion.div
             key={index}
             variants={cardVariants}
-            className="bg-white rounded-2xl p-8 border border-neutral-100/50 shadow-sm hover:shadow-md hover:border-brand-primary/10 transition-all duration-300 flex flex-col justify-between"
+            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
+            className="group bg-white rounded-2xl p-8 border border-neutral-100/50 shadow-sm hover:shadow-lg hover:border-brand-primary/20 transition-all duration-300 flex flex-col justify-between cursor-pointer"
           >
             <div>
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-xl bg-brand-primary/5 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-xl bg-brand-primary/5 group-hover:bg-brand-primary group-hover:rotate-6 flex items-center justify-center mb-6 transition-all duration-300">
                 {service.icon}
               </div>
               
@@ -110,6 +111,12 @@ export default function Services() {
               <p className="text-neutral-600 text-sm leading-relaxed">
                 {service.description}
               </p>
+            </div>
+
+            {/* Learn More Link */}
+            <div className="mt-6 flex items-center text-sm font-semibold text-brand-primary">
+              <span className="mr-1.5 group-hover:underline">Learn More</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300" />
             </div>
           </motion.div>
         ))}

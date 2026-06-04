@@ -107,7 +107,7 @@ export default function Hero({
               initial={{ opacity: 0, scale: 0.6, rotate: 15 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.75 }}
-              className="absolute -top-12 right-[30px] sm:-top-[40px] sm:right-[20px] md:-top-[70px] md:-right-[120px] w-32 sm:w-[320px] md:w-[600px] z-10 pointer-events-none select-none"
+              className="absolute -top-12 right-[30px] sm:-top-[40px] sm:right-[20px] md:-top-[70px] md:-right-[120px] w-32 sm:w-[400px] md:w-[600px] z-10 pointer-events-none select-none"
             >
               <Image
                 src="/Rupesh (1) (1).png"
