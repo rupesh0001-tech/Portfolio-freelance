@@ -4,7 +4,7 @@ import PartnerLogos from "@/components/PartnerLogos";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-mint/60 flex flex-col font-sans selection:bg-brand-primary/20 selection:text-brand-primary">
+    <div className="min-h-screen bg-mint/60 flex flex-col font-sans">
       
       {/* Navigation Header */}
       <Navbar />

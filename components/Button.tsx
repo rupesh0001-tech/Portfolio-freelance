@@ -21,12 +21,12 @@ export default function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = "font-semibold rounded-lg text-center transition-all duration-200 cursor-pointer active:scale-[0.98] select-none text-sm inline-block";
+  const baseStyles = "font-semibold rounded-lg text-center cursor-pointer select-none text-sm inline-block";
   
   const variants = {
-    primary: "bg-brand-primary text-white px-6 py-2.5 hover:bg-[#cf6721] hover:shadow-md",
+    primary: "bg-brand-primary text-white px-6 py-2.5 hover:bg-[#cf6721]",
     outline: "border-2 border-brand-primary text-brand-primary px-6 py-2.5 hover:bg-brand-primary hover:text-white",
-    cta: "bg-brand-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl text-base md:text-lg hover:bg-[#cf6721] hover:shadow-lg hover:shadow-brand-primary/20",
+    cta: "bg-brand-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl text-base md:text-lg hover:bg-[#cf6721]",
   };
 
   const combinedClasses = `${baseStyles} ${variants[variant]} ${className} ${

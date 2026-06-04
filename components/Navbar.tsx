@@ -23,16 +23,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-mint/90 backdrop-blur-md shadow-sm py-4"
           : "bg-transparent py-6"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        
-        {/* Logo */}
-        <Logo />
+
+        {/* Logo
+        <Logo /> */}
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center space-x-10 text-neutral-800 font-medium text-base">
@@ -45,9 +44,8 @@ export default function Navbar() {
             >
               <span>Services</span>
               <svg
-                className={`w-4.5 h-4.5 transition-transform duration-200 ${
-                  servicesOpen ? "rotate-180" : ""
-                }`}
+                className={`w-4.5 h-4.5 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -112,11 +110,9 @@ export default function Navbar() {
 
         {/* Desktop Call to Actions */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" href="#">
-            Login
-          </Button>
+
           <Button variant="primary" href="#">
-            Register
+            Get Quote
           </Button>
         </div>
 
@@ -169,9 +165,8 @@ export default function Navbar() {
           >
             <span>Services</span>
             <svg
-              className={`w-5 h-5 transition-transform ${
-                servicesOpen ? "rotate-180" : ""
-              }`}
+              className={`w-5 h-5 transition-transform ${servicesOpen ? "rotate-180" : ""
+                }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -184,7 +179,7 @@ export default function Navbar() {
               />
             </svg>
           </button>
-          
+
           {servicesOpen && (
             <div className="pl-4 space-y-2 border-l-2 border-neutral-100 py-1">
               <a href="#" className="block text-neutral-600 py-1.5 text-sm">
@@ -208,7 +203,7 @@ export default function Navbar() {
           <a href="#" className="text-neutral-800 font-semibold py-2">
             Contact Us
           </a>
-          
+
           <div className="pt-4 flex flex-col space-y-3">
             <Button variant="outline" href="#" className="py-3">
               Login
