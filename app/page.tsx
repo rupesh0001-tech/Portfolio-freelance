@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PartnerLogos from "@/components/PartnerLogos";
 import Services from "@/components/Services";
 import StrategicPartnerships from "@/components/StrategicPartnerships";
+import WhyWorkWithMe from "@/components/WhyWorkWithMe";
 
 export default function Home() {
   return (
@@ -25,6 +26,9 @@ export default function Home() {
 
         {/* Strategic Partnerships Section */}
         <StrategicPartnerships />
+
+        {/* Why Work With Me Section */}
+        <WhyWorkWithMe />
 
         {/* Small spacing at the bottom to match image layout */}
         <div className="h-10 bg-mint/60"></div>

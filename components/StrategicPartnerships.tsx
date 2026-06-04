@@ -68,16 +68,16 @@ const partnerships = [
 ];
 
 const PartnershipCard = ({ partner, index, progress, total }: { partner: any, index: number, progress: any, total: number }) => {
-    // Range calculation with a 15% scroll buffer at the start:
-    const startBuffer = 0.15;
+    // Range calculation with a 20% scroll buffer at the start:
+    const startBuffer = 0.20;
     const activeRange = 1 - startBuffer;
     const start = startBuffer + (index / total) * activeRange;
     const end = startBuffer + ((index + 1) / total) * activeRange;
 
     // Only the top N-1 cards actually peel away. The last card stays fixed.
     const y = useTransform(progress, [start, end], ["0%", "-110%"]);
-    // Start fading only after 60% of the movement is done, and end at 0.2 opacity
-    const opacity = useTransform(progress, [start, end], [1, 0]);
+    // Make the opacity drop to 0 only when it reaches the very top (last 5% of its peel range)
+    const opacity = useTransform(progress, [start, start + (end - start) * 0.95, end], [1, 1, 0]);
     const scale = useTransform(progress, [start, end], [1, 0.95]);
 
     return (
@@ -158,9 +158,9 @@ const StrategicPartnerships = () => {
         offset: ["start start", "end end"]
     });
 
-    const headerOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
-    const headerY = useTransform(scrollYProgress, [0, 0.12], ["0%", "-50%"]);
-    const cardsYOffset = useTransform(scrollYProgress, [0, 0.15], ["15%", "0%"]);
+    const headerOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+    const headerY = useTransform(scrollYProgress, [0, 0.15], ["0%", "-50%"]);
+    const cardsYOffset = useTransform(scrollYProgress, [0, 0.20], ["20%", "0%"]);
 
     return (
         <section
