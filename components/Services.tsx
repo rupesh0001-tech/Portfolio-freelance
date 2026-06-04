@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Code2, Smartphone, Palette, Target } from "lucide-react";
 
 interface ServiceItem {
   title: string;
@@ -13,82 +14,22 @@ const servicesList: ServiceItem[] = [
   {
     title: "Web Development",
     description: "We build fast, secure, and beautiful websites tailored to your business needs, using modern frameworks.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-brand-primary"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-        />
-      </svg>
-    ),
+    icon: <Code2 className="w-8 h-8 text-brand-primary" />,
   },
   {
     title: "Mobile Application",
     description: "High-performance native and cross-platform mobile apps designed for smooth user experience.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-brand-primary"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
-        />
-      </svg>
-    ),
+    icon: <Smartphone className="w-8 h-8 text-brand-primary" />,
   },
   {
     title: "UI/UX Interface Design",
     description: "User-centric design solutions that make your product intuitive, accessible, and delightful.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-brand-primary"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9.53 16.122A3 3 0 0010.5 21.5h3a3 3 0 00.97-5.378m-4.44-11.244a3 3 0 00-4.44 11.244M13.5 3.75a3 3 0 004.44 11.244M1.5 12h21"
-        />
-      </svg>
-    ),
+    icon: <Palette className="w-8 h-8 text-brand-primary" />,
   },
   {
     title: "Brand Identity",
     description: "Stand out from competitors with a memorable logo, consistent visual language, and brand strategy.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-brand-primary"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15.343 7.243A8 8 0 114.657 17.93m10.686-10.686A8 8 0 0117.93 17.93m-10.686 0L10.5 15.5m7.43 2.43L15.5 15.5M10.5 15.5A3 3 0 1113.5 12.5"
-        />
-      </svg>
-    ),
+    icon: <Target className="w-8 h-8 text-brand-primary" />,
   },
 ];
 
