@@ -8,7 +8,7 @@ const partnerships = [
     {
         name: "RotationMatch",
         description: "Interactive rotation matching tool for aligning digital puzzle assets.",
-        image: "/rotation-match.png",
+        image: "https://ik.imagekit.io/frbjdpcvl/image(2).png",
         liveUrl: "https://rotationmatchnetwork.com/",
         testimonial: {
             author: "Alex Rivera",
@@ -20,7 +20,7 @@ const partnerships = [
     {
         name: "Boomzo",
         description: "Connecting users with Aligarh's professional home, salon, and real estate services.",
-        image: "/Boomzo.png",
+        image: "https://ik.imagekit.io/frbjdpcvl/image.png",
         liveUrl: "https://www.boomzo.in/aligarh",
         testimonial: {
             author: "Sarah Thompson",
@@ -32,7 +32,7 @@ const partnerships = [
     {
         name: "TopGunz Auto",
         description: "Modern shop OS - Run your entire auto business from one comprehensive platform.",
-        image: "/topgunauto.png",
+        image: "https://ik.imagekit.io/frbjdpcvl/image(1).png",
         liveUrl: "https://topgunzauto.com/",
         testimonial: {
             author: "Michael Roberts",
@@ -44,7 +44,7 @@ const partnerships = [
     {
         name: "Hger",
         description: "High-end design portfolio and showcase platform optimized for creative professionals.",
-        image: "/hger.png",
+        image: "https://ik.imagekit.io/frbjdpcvl/image(3).png",
         liveUrl: "https://hgeroadshow.com/",
         testimonial: {
             author: "Emma Larson",
@@ -81,11 +81,11 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
             <div className="w-full max-w-6xl bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.04)] border border-neutral-100 overflow-hidden flex flex-col md:flex-row">
 
                 {/* Left Side: Raw 16:9 Screenshot Image */}
-                <div className="w-full md:w-[60%] aspect-[206/100] shrink-0 overflow-hidden">
+                <div className="w-full md:w-[60%] aspect-video shrink-0 overflow-hidden">
                     <img
                         src={partner.image}
                         alt={partner.name}
-                        className="w-full h-full  object-contain filter contrast-[1.02] group-hover:scale-[1.02] transition-transform duration-500"
+                        className="w-[100.9%] max-w-none h-full object-cover object-left filter contrast-[1.02] group-hover:scale-[1.02] transition-transform duration-500"
                     />
                 </div>
 

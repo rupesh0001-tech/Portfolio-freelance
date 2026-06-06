@@ -9,46 +9,41 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "Rupesh Jagtap | Best Web Developer in Pune | Frontend Engineer & Next.js Developer",
-    template: "%s | Rupesh Jagtap - Web Developer"
-  },
-  description: "Looking for the best web developer in Pune? Rupesh Jagtap is a professional web engineer & frontend developer in Pune, building high-performance React, Next.js web applications and UI/UX design systems.",
+  title: "Rupesh Jagtap | Best Web Developer in Pune | Frontend & Full Stack Engineer",
+  description: "Are you looking for the best web developer in Pune? Rupesh Jagtap is a premier React & Next.js developer offering custom UI animations, responsive layouts, and SEO-optimized web applications. Hire the best web dev today.",
   keywords: [
-    "Rupesh Jagtap",
     "best web developer in pune",
-    "best web dev in pune",
+    "best web dev",
+    "need a web dev",
     "web developer pune",
-    "web development services pune",
-    "best frontend engineer pune",
-    "hire react developer pune",
+    "rupesh jagtap",
+    "react developer pune",
     "nextjs developer pune",
-    "freelance web developer pune",
     "pune web developer",
-    "best software developer in pune",
-    "ui ux designer pune",
-    "pune web engineer",
-    "portfolio website"
+    "software engineer pune",
+    "hire web developer pune",
+    "freelance web developer pune"
   ],
   authors: [{ name: "Rupesh Jagtap" }],
   creator: "Rupesh Jagtap",
+  publisher: "Rupesh Jagtap",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
+    locale: "en_US",
     url: "https://rupeshjagtap.dev",
-    title: "Rupesh Jagtap | Best Web Developer in Pune | Frontend & Next.js Developer",
-    description: "High-performance web development, custom applications, and clean user interfaces by Pune's leading frontend engineer.",
+    title: "Rupesh Jagtap | Best Web Developer in Pune | Frontend & Full Stack",
+    description: "Looking for a premium web developer? Rupesh Jagtap designs and develops high-performance, SEO-optimized React & Next.js web applications in Pune, India.",
     siteName: "Rupesh Jagtap Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Rupesh Jagtap | Best Web Developer in Pune",
-    description: "Professional Next.js/React web developer & frontend engineer in Pune, India.",
-  }
+    description: "Looking for the best web dev in Pune? Rupesh Jagtap builds high-performance, SEO-optimized React & Next.js websites.",
+  },
 };
 
 export default function RootLayout({

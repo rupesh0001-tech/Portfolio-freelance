@@ -28,8 +28,8 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-mint/90 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-6"
+        ? "bg-mint/90 backdrop-blur-md shadow-sm py-4"
+        : "bg-transparent py-6"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -109,12 +109,6 @@ export default function Navbar() {
             className="hover:text-brand-primary transition-colors duration-200 py-2"
           >
             About Us
-          </a>
-          <a
-            href="/blog"
-            className="hover:text-brand-primary transition-colors duration-200 py-2"
-          >
-            Blog
           </a>
           <a
             href="/#contact"
@@ -222,9 +216,6 @@ export default function Navbar() {
 
             <a href="/about" className="text-neutral-800 font-semibold py-2">
               About Us
-            </a>
-            <a href="/blog" className="text-neutral-800 font-semibold py-2">
-              Blog
             </a>
             <a href="/#contact" className="text-neutral-800 font-semibold py-2">
               Contact Us

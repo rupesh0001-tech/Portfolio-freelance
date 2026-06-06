@@ -22,16 +22,15 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles = "font-semibold rounded-lg text-center cursor-pointer select-none text-sm inline-block";
-  
+
   const variants = {
     primary: "bg-brand-primary text-white px-6 py-2.5 hover:bg-[#cf6721]",
     outline: "border-2 border-brand-primary text-brand-primary px-6 py-2.5 hover:bg-brand-primary hover:text-white",
-    cta: "bg-brand-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl text-base md:text-lg hover:bg-[#cf6721]",
+    cta: "bg-brand-primary  text-white px-8 py-4 md:px-10 md:py-5 rounded-2xl text-base md:text-lg hover:bg-[#cf6721]",
   };
 
-  const combinedClasses = `${baseStyles} ${variants[variant]} ${className} ${
-    disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
-  }`;
+  const combinedClasses = `${baseStyles} ${variants[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""
+    }`;
 
   if (href) {
     return (

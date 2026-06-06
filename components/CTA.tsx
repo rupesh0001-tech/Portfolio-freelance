@@ -73,7 +73,7 @@ export default function CTA() {
           <motion.div
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="pt-4"
+            className="pt-4  cursor-pointer"
           >
             <Button
               variant="cta"

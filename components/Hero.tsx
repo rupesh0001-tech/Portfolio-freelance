@@ -38,15 +38,15 @@ export default function Hero({
 
         {/* Left Content Column */}
         <div className="lg:col-span-6 flex flex-col space-y-6 md:space-y-8 text-left z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black leading-[1.15] tracking-tight max-w-xl"
           >
             Turn your idea into a successful{" "}
-            <motion.span 
-              layout 
+            <motion.span
+              layout
               transition={{ type: "spring", stiffness: 220, damping: 28 }}
               className="inline-block relative text-brand-primary overflow-visible"
             >
@@ -56,7 +56,7 @@ export default function Hero({
                   initial={{ opacity: 0, scale: 0.9, y: 4 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 1.05, y: -4 }}
-                  transition={{ 
+                  transition={{
                     scale: { type: "spring", stiffness: 300, damping: 25 },
                     y: { type: "spring", stiffness: 300, damping: 25 },
                     opacity: { duration: 0.2 }
@@ -70,7 +70,7 @@ export default function Hero({
             today
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
@@ -88,7 +88,7 @@ export default function Hero({
 
         {/* Right Image Column */}
         <div className="lg:col-span-6 flex justify-center lg:justify-end w-full relative z-0">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
@@ -103,7 +103,7 @@ export default function Hero({
               className="w-full h-auto object-contain"
             />
             {/* Rupesh Arrow */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.6, rotate: 15 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ type: "spring", stiffness: 180, damping: 15, delay: 0.75 }}

@@ -69,11 +69,11 @@ export default function AboutPage() {
 
       {/* Main Content */}
       <main className="flex-1 pt-28 md:pt-36">
-        
+
         {/* Back to Home Link */}
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-4 -mb-8">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-600 hover:text-brand-primary transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -84,7 +84,7 @@ export default function AboutPage() {
         {/* Intro Hero Section */}
         <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
+
             {/* Left Column: Bio Details */}
             <motion.div
               variants={containerVariants}
@@ -92,26 +92,26 @@ export default function AboutPage() {
               animate="visible"
               className="lg:col-span-7 flex flex-col space-y-6 text-left"
             >
-              <motion.span 
+              <motion.span
                 variants={itemVariants}
                 className="text-sm font-bold tracking-wider text-brand-primary uppercase block"
               >
                 About Me
               </motion.span>
-              <motion.h1 
+              <motion.h1
                 variants={itemVariants}
                 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black tracking-tight leading-[1.15] max-w-2xl"
               >
                 Building products with technical precision.
               </motion.h1>
-              <motion.p 
+              <motion.p
                 variants={itemVariants}
                 className="text-neutral-700 text-base sm:text-lg leading-relaxed max-w-xl font-normal"
               >
                 Hi, I'm Rupesh Jagtap. I design and build high-performance web applications, responsive software systems, and memorable digital experiences. My mission is to bridge the gap between technical scalability and user-centric aesthetics.
               </motion.p>
-              
-              <motion.p 
+
+              <motion.p
                 variants={itemVariants}
                 className="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal"
               >
@@ -140,7 +140,7 @@ export default function AboutPage() {
               <div className="relative w-full max-w-[380px] aspect-square rounded-[32px] bg-white border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-6 overflow-hidden flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/50 to-white" />
                 <div className="absolute inset-0 bg-[#e87d36]/[0.01]" />
-                
+
                 {/* Visual Avatar */}
                 <div className="relative z-10 w-full h-full flex items-center justify-center">
                   <Image
@@ -216,7 +216,7 @@ export default function AboutPage() {
         <section className="pb-20 md:pb-28 max-w-7xl mx-auto px-6 md:px-12 w-full">
           <div className="w-full bg-neutral-950 rounded-[32px] overflow-hidden border border-neutral-800/60 shadow-xl p-8 md:p-12 lg:p-16 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/40 via-transparent to-brand-primary/[0.02] pointer-events-none" />
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
               {/* Skills Title */}
               <div className="lg:col-span-4 space-y-4">

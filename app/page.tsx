@@ -12,13 +12,13 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="min-h-screen bg-mint/60 flex flex-col font-sans">
-      
+
       {/* Navigation Header */}
       <Navbar />
 
       {/* Main Content */}
       <main className="flex-1 pt-28 md:pt-36">
-        
+
         {/* Hero Section */}
         <Hero />
 
@@ -36,7 +36,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <FAQ />
-        
+
         <CTA />
 
         <Form />
