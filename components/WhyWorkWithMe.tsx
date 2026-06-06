@@ -16,24 +16,7 @@ interface BenefitItem {
 // ── Detailed Visual Panels ──────────────────────────────────────────
 
 const VisualCommunication = () => (
-  <div className="flex flex-col gap-3 w-full px-5 justify-center h-full">
-    <div className="self-start max-w-[85%] bg-neutral-100/80 rounded-2xl rounded-tl-none p-3 text-[11px] text-neutral-800 border border-neutral-200/50 shadow-sm">
-      <div className="font-semibold text-[8px] text-neutral-400 mb-1 tracking-wider uppercase">CLIENT</div>
-      Hi Rupesh! Any updates on the milestone deployment?
-    </div>
-    <div className="self-end max-w-[85%] bg-brand-primary text-white rounded-2xl rounded-tr-none p-3 text-[11px] border border-brand-primary/20 shadow-md shadow-brand-primary/10">
-      <div className="font-semibold text-[8px] text-white/70 mb-1 tracking-wider uppercase">ME</div>
-      Yes! All code is clean, compiled, and deployed to staging. Sending link in 1 min.
-    </div>
-    <div className="flex justify-center items-center mt-2">
-      <MessageSquare className="w-3.5 h-3.5 text-brand-primary animate-bounce" />
-      <div className="flex gap-1 ml-2">
-        <span className="w-1.5 h-1.5 bg-brand-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-        <span className="w-1.5 h-1.5 bg-brand-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-        <span className="w-1.5 h-1.5 bg-brand-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-      </div>
-    </div>
-  </div>
+  <img src="../public/why_me_architecture.png" alt="" />
 );
 
 const VisualCode = () => (
