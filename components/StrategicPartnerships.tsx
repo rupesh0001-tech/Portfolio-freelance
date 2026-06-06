@@ -78,22 +78,19 @@ const PartnershipCard = ({ partner, index, progress, total }: { partner: any, in
             }}
             className="absolute top-0 left-0 w-full h-full flex items-center justify-center p-4 md:p-6 lg:p-8"
         >
-            <div className="w-full max-w-5xl aspect-[4/5] md:aspect-[1.5/1] lg:h-[65vh] bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.04)] border border-neutral-100 overflow-hidden flex flex-col md:flex-row">
+            <div className="w-full max-w-6xl bg-white rounded-[24px] shadow-[0_15px_50px_rgba(0,0,0,0.04)] border border-neutral-100 overflow-hidden flex flex-col md:flex-row">
 
-                {/* Left Side: Mockup Image */}
-                <div className="w-full md:w-[50%] bg-neutral-50 flex items-center justify-center h-[35%] md:h-full shrink-0 p-6 md:p-8 lg:p-10">
-                    <div className="relative group w-full h-full overflow-hidden shadow-lg transition-transform duration-500 rounded-xl">
-                        <img
-                            src={partner.image}
-                            alt={partner.name}
-                            className="w-full h-full object-cover rounded-xl filter contrast-[1.03]"
-                        />
-                        <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-500" />
-                    </div>
+                {/* Left Side: Raw 16:9 Screenshot Image */}
+                <div className="w-full md:w-[60%] aspect-[206/100] shrink-0 overflow-hidden">
+                    <img
+                        src={partner.image}
+                        alt={partner.name}
+                        className="w-full h-full  object-contain filter contrast-[1.02] group-hover:scale-[1.02] transition-transform duration-500"
+                    />
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="w-full md:w-[50%] p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-white h-[65%] md:h-full overflow-hidden">
+                <div className="w-full md:w-[40%] p-6 md:p-8 lg:p-10 flex flex-col justify-between bg-white overflow-hidden">
                     <div className="space-y-2.5 md:space-y-4">
                         <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black tracking-tight">
                             {partner.name}

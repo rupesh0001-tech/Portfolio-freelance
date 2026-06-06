@@ -4,6 +4,7 @@ import PartnerLogos from "@/components/PartnerLogos";
 import Services from "@/components/Services";
 import StrategicPartnerships from "@/components/StrategicPartnerships";
 import WhyWorkWithMe from "@/components/WhyWorkWithMe";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Form from "@/components/Form";
 import Footer from "@/components/Footer";
@@ -32,6 +33,10 @@ export default function Home() {
 
         {/* Why Work With Me Section */}
         <WhyWorkWithMe />
+
+        {/* FAQ Section */}
+        <FAQ />
+        
         <CTA />
 
         <Form />

@@ -111,6 +111,12 @@ export default function Navbar() {
             About Us
           </a>
           <a
+            href="/blog"
+            className="hover:text-brand-primary transition-colors duration-200 py-2"
+          >
+            Blog
+          </a>
+          <a
             href="/#contact"
             className="hover:text-brand-primary transition-colors duration-200 py-2"
           >
@@ -216,6 +222,9 @@ export default function Navbar() {
 
             <a href="/about" className="text-neutral-800 font-semibold py-2">
               About Us
+            </a>
+            <a href="/blog" className="text-neutral-800 font-semibold py-2">
+              Blog
             </a>
             <a href="/#contact" className="text-neutral-800 font-semibold py-2">
               Contact Us
