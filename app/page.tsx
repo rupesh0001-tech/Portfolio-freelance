@@ -4,6 +4,9 @@ import PartnerLogos from "@/components/PartnerLogos";
 import Services from "@/components/Services";
 import StrategicPartnerships from "@/components/StrategicPartnerships";
 import WhyWorkWithMe from "@/components/WhyWorkWithMe";
+import CTA from "@/components/CTA";
+import Form from "@/components/Form";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -29,11 +32,13 @@ export default function Home() {
 
         {/* Why Work With Me Section */}
         <WhyWorkWithMe />
+        <CTA />
 
-        {/* Small spacing at the bottom to match image layout */}
-        <div className="h-10 bg-mint/60"></div>
+        <Form />
 
       </main>
+
+      <Footer />
     </div>
   );
 }

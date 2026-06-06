@@ -93,31 +93,23 @@ export default function Services() {
           <motion.div
             key={index}
             variants={cardVariants}
-            whileHover={{ y: -8, transition: { duration: 0.3, ease: "easeOut" } }}
-            className="group bg-white rounded-2xl p-8 border border-neutral-100/50 shadow-sm hover:shadow-lg hover:border-brand-primary/20 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+            whileHover={{ y: -8, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }}
+            className="group relative bg-gradient-to-br from-white to-neutral-50/40 rounded-3xl p-8 border border-neutral-100 shadow-[0_12px_40px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(232,125,54,0.06)] hover:border-brand-primary/20 hover:to-brand-primary/[0.01] transition-all duration-500 cursor-pointer flex flex-col justify-start"
           >
-            <div>
-              {/* Icon Container */}
-              <div className="w-14 h-14 rounded-xl bg-brand-primary/5 group-hover:bg-brand-primary group-hover:rotate-6 flex items-center justify-center mb-6 transition-all duration-300">
-                {service.icon}
-              </div>
-              
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-black mb-3">
-                {service.title}
-              </h3>
-              
-              {/* Description */}
-              <p className="text-neutral-600 text-sm leading-relaxed">
-                {service.description}
-              </p>
+            {/* Icon Container */}
+            <div className="w-14 h-14 rounded-2xl bg-brand-primary/5 border border-brand-primary/5 group-hover:bg-brand-primary group-hover:rotate-6 group-hover:scale-105 group-hover:shadow-[0_10px_25px_rgba(232,125,54,0.2)] flex items-center justify-center mb-6 transition-all duration-500">
+              {service.icon}
             </div>
-
-            {/* Learn More Link */}
-            <div className="mt-6 flex items-center text-sm font-semibold text-brand-primary">
-              <span className="mr-1.5 group-hover:underline">Learn More</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform duration-300" />
-            </div>
+            
+            {/* Title */}
+            <h3 className="text-xl font-bold text-black group-hover:text-brand-primary transition-colors duration-300 mb-3">
+              {service.title}
+            </h3>
+            
+            {/* Description */}
+            <p className="text-neutral-500 group-hover:text-neutral-600 text-sm leading-relaxed font-normal transition-colors duration-300">
+              {service.description}
+            </p>
           </motion.div>
         ))}
       </motion.div>

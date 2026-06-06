@@ -76,25 +76,25 @@ export default function Navbar() {
                   className="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-neutral-100 py-2 z-50 origin-top-left"
                 >
                   <a
-                    href="#"
+                    href="/#services"
                     className="block px-5 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-brand-primary font-medium transition-colors"
                   >
                     Web Development
                   </a>
                   <a
-                    href="#"
+                    href="/#services"
                     className="block px-5 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-brand-primary font-medium transition-colors"
                   >
                     Mobile Application
                   </a>
                   <a
-                    href="#"
+                    href="/#services"
                     className="block px-5 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-brand-primary font-medium transition-colors"
                   >
                     UI/UX Interface Design
                   </a>
                   <a
-                    href="#"
+                    href="/#services"
                     className="block px-5 py-3 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-brand-primary font-medium transition-colors"
                   >
                     Brand Identity & Strategy
@@ -105,13 +105,13 @@ export default function Navbar() {
           </div>
 
           <a
-            href="#"
+            href="/about"
             className="hover:text-brand-primary transition-colors duration-200 py-2"
           >
             About Us
           </a>
           <a
-            href="#"
+            href="/#contact"
             className="hover:text-brand-primary transition-colors duration-200 py-2"
           >
             Contact Us
@@ -121,7 +121,7 @@ export default function Navbar() {
         {/* Desktop Call to Actions */}
         <div className="hidden md:flex items-center space-x-4">
 
-          <Button variant="primary" href="#">
+          <Button variant="primary" href="/#contact">
             Get Quote
           </Button>
         </div>
@@ -199,34 +199,31 @@ export default function Navbar() {
 
             {servicesOpen && (
               <div className="pl-4 space-y-2 border-l-2 border-neutral-100 py-1">
-                <a href="#" className="block text-neutral-600 py-1.5 text-sm">
+                <a href="/#services" className="block text-neutral-600 py-1.5 text-sm">
                   Web Development
                 </a>
-                <a href="#" className="block text-neutral-600 py-1.5 text-sm">
+                <a href="/#services" className="block text-neutral-600 py-1.5 text-sm">
                   Mobile Application
                 </a>
-                <a href="#" className="block text-neutral-600 py-1.5 text-sm">
+                <a href="/#services" className="block text-neutral-600 py-1.5 text-sm">
                   UI/UX Interface Design
                 </a>
-                <a href="#" className="block text-neutral-600 py-1.5 text-sm">
+                <a href="/#services" className="block text-neutral-600 py-1.5 text-sm">
                   Brand Identity & Strategy
                 </a>
               </div>
             )}
 
-            <a href="#" className="text-neutral-800 font-semibold py-2">
+            <a href="/about" className="text-neutral-800 font-semibold py-2">
               About Us
             </a>
-            <a href="#" className="text-neutral-800 font-semibold py-2">
+            <a href="/#contact" className="text-neutral-800 font-semibold py-2">
               Contact Us
             </a>
 
             <div className="pt-4 flex flex-col space-y-3">
-              <Button variant="outline" href="#" className="py-3">
-                Login
-              </Button>
-              <Button variant="primary" href="#" className="py-3">
-                Register
+              <Button variant="primary" href="/#contact" className="py-3">
+                Get Quote
               </Button>
             </div>
           </motion.div>

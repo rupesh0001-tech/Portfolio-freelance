@@ -8,8 +8,8 @@ const partnerships = [
     {
         name: "RotationMatch",
         description: "Interactive rotation matching tool for aligning digital puzzle assets.",
-        image: "/hero-image.png",
-        liveUrl: "#",
+        image: "/rotation-match.png",
+        liveUrl: "https://rotationmatchnetwork.com/",
         testimonial: {
             author: "Alex Rivera",
             role: "Lead Designer, RotationMatch",
@@ -20,20 +20,20 @@ const partnerships = [
     {
         name: "Boomzo",
         description: "Connecting users with Aligarh's professional home, salon, and real estate services.",
-        image: "/hero-image.png",
-        liveUrl: "https://www.boomzo.in/",
+        image: "/Boomzo.png",
+        liveUrl: "https://www.boomzo.in/aligarh",
         testimonial: {
             author: "Sarah Thompson",
             role: "Founder, Boomzo",
-            text: "Top Gun Softwares built an incredible platform that perfectly captures our vibrant brand.",
+            text: "Rupesh Jagtap built an incredible platform that perfectly captures our vibrant brand.",
             avatar: "https://i.pravatar.cc/150?u=boomzo"
         }
     },
     {
         name: "TopGunz Auto",
         description: "Modern shop OS - Run your entire auto business from one comprehensive platform.",
-        image: "/hero-image.png",
-        liveUrl: "https://www.topgunzauto.com/",
+        image: "/topgunauto.png",
+        liveUrl: "https://topgunzauto.com/",
         testimonial: {
             author: "Michael Roberts",
             role: "Owner, TopGunz Auto",
@@ -44,25 +44,13 @@ const partnerships = [
     {
         name: "Hger",
         description: "High-end design portfolio and showcase platform optimized for creative professionals.",
-        image: "/hero-image.png",
-        liveUrl: "#",
+        image: "/hger.png",
+        liveUrl: "https://hgeroadshow.com/",
         testimonial: {
             author: "Emma Larson",
             role: "Creative Director, Hger",
             text: "Stunning aesthetics and responsiveness. Our visual engagement has doubled!",
             avatar: "https://i.pravatar.cc/150?u=hger"
-        }
-    },
-    {
-        name: "Top Gun Softwares",
-        description: "A premium software agency crafting bespoke websites and high-performance digital experiences.",
-        image: "/hero-image.png",
-        liveUrl: "#",
-        testimonial: {
-            author: "John Doe",
-            role: "Managing Director",
-            text: "Top-tier results in record time. Excellent animations and design quality!",
-            avatar: "https://i.pravatar.cc/150?u=topgunsoft"
         }
     },
 ];
