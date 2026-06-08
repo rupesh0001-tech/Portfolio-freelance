@@ -21,7 +21,7 @@ export default function Button({
   disabled = false,
   ...props
 }: ButtonProps) {
-  const baseStyles = "font-semibold rounded-lg text-center cursor-pointer select-none text-sm inline-block";
+  const baseStyles = "font-semibold rounded-lg text-center cursor-pointer select-none text-sm inline-flex items-center justify-center gap-2 transition-all duration-300";
 
   const variants = {
     primary: "bg-brand-primary text-white px-6 py-2.5 hover:bg-[#cf6721]",

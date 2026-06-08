@@ -52,18 +52,18 @@ const technologies = {
 };
 
 const TechItem = ({ name, slug }: { name: string; slug: string }) => (
-  <div className="group flex flex-col items-center justify-center p-5 bg-white rounded-xl border border-neutral-100 shadow-sm hover:shadow-md hover:border-brand-primary/20 transition-all duration-300 w-44 shrink-0 mx-3">
-    <div className="w-10 h-10 mb-2 relative flex items-center justify-center transition-all duration-300">
+  <div className="group flex flex-col items-center justify-center p-3 sm:p-4 md:p-5 bg-white rounded-xl border border-neutral-100 shadow-sm hover:shadow-md hover:border-brand-primary/20 transition-all duration-300 w-28 sm:w-36 md:w-44 shrink-0 mx-2 md:mx-3">
+    <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 mb-1.5 md:mb-2 relative flex items-center justify-center transition-all duration-300">
       <img
         src={`https://cdn.simpleicons.org/${slug}`}
         alt={name}
-        className="w-7 h-7 object-contain"
+        className="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 object-contain"
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
         }}
       />
     </div>
-    <span className={`${inter.className} text-xs font-semibold text-neutral-500 group-hover:text-brand-primary transition-colors`}>
+    <span className={`${inter.className} text-[10px] sm:text-[11px] md:text-xs font-semibold text-neutral-500 group-hover:text-brand-primary transition-colors text-center`}>
       {name}
     </span>
   </div>

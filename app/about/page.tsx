@@ -83,14 +83,14 @@ export default function AboutPage() {
 
         {/* Intro Hero Section */}
         <section className="py-16 md:py-24 max-w-7xl mx-auto px-6 md:px-12 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="max-w-4xl mx-auto">
 
-            {/* Left Column: Bio Details */}
+            {/* Bio Details */}
             <motion.div
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="lg:col-span-7 flex flex-col space-y-6 text-left"
+              className="flex flex-col space-y-6 text-left lg:text-center items-start lg:items-center"
             >
               <motion.span
                 variants={itemVariants}
@@ -100,26 +100,26 @@ export default function AboutPage() {
               </motion.span>
               <motion.h1
                 variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black tracking-tight leading-[1.15] max-w-2xl"
+                className="text-4xl sm:text-5xl md:text-6xl font-semibold text-black tracking-tight leading-[1.15] max-w-3xl"
               >
                 Building products with technical precision.
               </motion.h1>
               <motion.p
                 variants={itemVariants}
-                className="text-neutral-700 text-base sm:text-lg leading-relaxed max-w-xl font-normal"
+                className="text-neutral-700 text-base sm:text-lg leading-relaxed max-w-2xl font-normal"
               >
                 Hi, I'm Rupesh Jagtap. I design and build high-performance web applications, responsive software systems, and memorable digital experiences. My mission is to bridge the gap between technical scalability and user-centric aesthetics.
               </motion.p>
 
               <motion.p
                 variants={itemVariants}
-                className="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal"
+                className="text-neutral-600 text-sm sm:text-base leading-relaxed max-w-2xl font-normal"
               >
                 Based in Pune, India, I specialize in crafting clean code, creating highly custom interface animations, and designing fluid systems that solve real problems.
               </motion.p>
 
               {/* Quick Call to Action */}
-              <motion.div variants={itemVariants} className="pt-4 flex flex-wrap gap-4">
+              <motion.div variants={itemVariants} className="pt-4 flex flex-wrap gap-4 justify-start lg:justify-center w-full">
                 <Button variant="primary" href="/#contact" className="inline-flex items-center gap-2">
                   <span>Work With Me</span>
                   <ArrowRight className="w-4 h-4" />
@@ -130,30 +130,6 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Right Column: Profile Image Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-5 flex justify-center w-full relative"
-            >
-              <div className="relative w-full max-w-[380px] aspect-square rounded-[32px] bg-white border border-neutral-100 shadow-[0_20px_50px_rgba(0,0,0,0.03)] p-6 overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/50 to-white" />
-                <div className="absolute inset-0 bg-[#e87d36]/[0.01]" />
-
-                {/* Visual Avatar */}
-                <div className="relative z-10 w-full h-full flex items-center justify-center">
-                  <Image
-                    src="/Rupesh (1) (1).png"
-                    alt="Rupesh Jagtap Profile"
-                    width={320}
-                    height={320}
-                    priority
-                    className="w-full h-auto object-contain transition-transform duration-500 hover:scale-[1.03]"
-                  />
-                </div>
-              </div>
-            </motion.div>
           </div>
         </section>
 
